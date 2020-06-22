@@ -26,7 +26,7 @@ public class DB {
             ConnectionString connectionString = new ConnectionString();
             ResultSet resultSet = connectionString.SelectToDB(Query);
             return resultSet;
-            
+
         }
     }
     public String InsertDataToDb(String Query){
