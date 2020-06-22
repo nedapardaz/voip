@@ -1,7 +1,8 @@
 import java.sql.*;
 
 public class DB {
-    public ResultSet Select(String Query){
+    public ResultSet Select(String Query, String DBMSType){
+        if (DBMSType.equals("MySQL")){
         String dbURL = "jdbc:mysql://localhost:3306/asterisk";
         String username = "root";
         String password = "123456";
@@ -18,6 +19,14 @@ public class DB {
             System.out.println(ex.getMessage());
         }
         return resultSet;
+
+        }
+        else
+        {
+            ConnectionString connectionString = new ConnectionString();
+            ResultSet resultSet = connectionString.SelectToDB(Query);
+            return resultSet;
+        }
     }
     public String InsertDataToDb(String Query){
         String dbURL = "jdbc:mysql://localhost:3306/asterisk";
